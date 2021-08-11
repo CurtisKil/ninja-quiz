@@ -22,7 +22,17 @@ form.addEventListener("submit", (e) => {
     }
     // Display Results
     scrollTo(0, 0);
-    span.innerHTML = score + "%";
     result.classList.remove("d-none");
+    // span.innerHTML = score + "%";
+
+    let output = 0;
+    const timer = setInterval(() => {
+      span.innerHTML = `${output}%`;
+      if (output === score) {
+        clearInterval(timer);
+      } else {
+        output++;
+      }
+    }, 15);
   });
 });
